@@ -1,0 +1,122 @@
+﻿@model WalletWise.Models.Expense
+
+@{
+    ViewData["Title"] = "Financial Reports";
+}
+
+<link rel="stylesheet"
+      href="~/css/ExpensesIndex.css"
+      asp-append-version="true" />
+
+<link rel="stylesheet"
+      href="~/css/AnalysisIndex.css"
+      asp-append-version="true" />
+
+<div class="expenses-page analysis-page">
+
+    <!-- Page Header -->
+    <div class="expenses-page-header">
+        <div class="expenses-heading">
+            <h1 class="expenses-page-title">Financial Reports</h1>
+            <p class="expenses-page-subtitle">
+                Understand where your money goes and track your spending.
+            </p>
+        </div>
+
+        <a asp-action="Index"
+           asp-controller="Expenses"
+           class="expenses-btn expenses-btn-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Expenses
+        </a>
+    </div>
+
+    <!-- Summary Cards -->
+    <div class="analysis-summary-grid">
+
+        <div class="expenses-card analysis-summary-card">
+
+            <div>
+                <p class="analysis-summary-label">Total Expenses</p>
+                <h2 class="analysis-summary-value">
+                    ₹<span id="totalExpenses">0.00</span>
+                </h2>
+            </div>
+        </div>
+
+        <div class="expenses-card analysis-summary-card">
+
+            <div>
+                <p class="analysis-summary-label">Categories</p>
+                <h2 class="analysis-summary-value" id="totalCategories">
+                    0
+                </h2>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Spending Chart -->
+    <section class="expenses-card analysis-section-card">
+
+        <div class="analysis-section-heading">
+            <div>
+                <h2 class="expenses-card-title">Spending by Category</h2>
+                <p class="expenses-card-subtitle">
+                    Breakdown of your expenses across different categories.
+                </p>
+            </div>
+        </div>
+
+        <div class="analysis-divider"></div>
+
+        <div class="analysis-chart-container" id="chartContainer">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div id="chartError" class="analysis-message analysis-error"
+             style="display:none;">
+            <i class="bi bi-exclamation-circle"></i>
+            <span>Unable to load expense data. Please try again later.</span>
+        </div>
+
+        <div id="chartEmpty" class="analysis-message"
+             style="display:none;">
+            <i class="bi bi-pie-chart"></i>
+            <p>No expenses recorded yet.</p>
+            <a asp-controller="Expenses"
+               asp-action="Create"
+               class="expenses-btn expenses-btn-primary">
+                <i class="bi bi-plus-lg"></i>
+                Add Your First Expense
+            </a>
+        </div>
+
+    </section>
+
+    <!-- Category Breakdown -->
+    <section class="expenses-card analysis-section-card">
+
+        <div class="analysis-section-heading">
+            <div>
+                <h2 class="expenses-card-title">Category Breakdown</h2>
+                <p class="expenses-card-subtitle">
+                    See how much you have spent in each category.
+                </p>
+            </div>
+        </div>
+
+        <div class="analysis-divider"></div>
+
+        <div id="categoryBreakdown" class="analysis-category-list">
+            <p class="analysis-loading">
+                Loading category data...
+            </p>
+        </div>
+
+    </section>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="~/js/analysis.js" asp-append-version="true"></script>

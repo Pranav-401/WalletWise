@@ -1,0 +1,107 @@
+﻿@model WalletWise.Models.Expense
+
+@{
+    ViewData["Title"] = "Edit Expense";
+}
+
+<link rel="stylesheet"
+      href="~/css/ExpensesIndex.css"
+      asp-append-version="true" />
+
+<div class="expenses-page">
+    <div class="expenses-page-header">
+        <div class="expenses-heading">
+            <h1 class="expenses-page-title">Edit Expense</h1>
+            <p class="expenses-page-subtitle">
+                Update your expense details and keep your records accurate.
+            </p>
+        </div>
+
+        <a asp-action="Index"
+           class="expenses-btn expenses-btn-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Expenses
+        </a>
+    </div>
+
+    <section class="expenses-card expense-form-card">
+        <div class="expenses-card-header">
+            <div>
+                <h2 class="expenses-card-title">Expense Details</h2>
+                <p class="expenses-card-subtitle">
+                    Make changes to the information below.
+                </p>
+            </div>
+        </div>
+
+        <div class="expense-form-content">
+            <form asp-action="Edit"
+                  asp-route-id="@Model.Id"
+                  method="post">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger expense-validation-summary">
+                </div>
+
+                <div class="expense-form-group">
+                    <label asp-for="Description" class="expense-form-label">
+                        Description
+                    </label>
+                    <input asp-for="Description"
+                           class="form-control expense-form-input"
+                           placeholder="e.g. Grocery shopping" />
+                    <span asp-validation-for="Description"
+                          class="text-danger expense-validation-message">
+                    </span>
+                </div>
+
+                <div class="expense-form-group">
+                    <label asp-for="Amount" class="expense-form-label">
+                        Amount (₹)
+                    </label>
+                    <input asp-for="Amount"
+                           class="form-control expense-form-input"
+                           type="number"
+                           step="0.01"
+                           min="0.1"
+                           placeholder="e.g. 500.00" />
+                    <span asp-validation-for="Amount"
+                          class="text-danger expense-validation-message">
+                    </span>
+                </div>
+
+                <div class="expense-form-group">
+                    <label asp-for="Category" class="expense-form-label">
+                        Category
+                    </label>
+                    <input asp-for="Category"
+                           class="form-control expense-form-input"
+                           placeholder="e.g. Food, Transport, Shopping" />
+                    <span asp-validation-for="Category"
+                          class="text-danger expense-validation-message">
+                    </span>
+                </div>
+
+                <div class="expense-form-actions">
+                    <button type="submit"
+                            class="expenses-btn expenses-btn-primary">
+                        <i class="bi bi-check-lg"></i>
+                        Update Expense
+                    </button>
+
+                    <a asp-action="Index"
+                       class="expenses-btn expenses-btn-secondary">
+                        Cancel
+                    </a>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

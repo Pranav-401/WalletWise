@@ -1,0 +1,99 @@
+﻿@model WalletWise.Models.Expense
+
+@{
+    ViewData["Title"] = "Delete Expense";
+}
+
+<link rel="stylesheet"
+      href="~/css/ExpensesIndex.css"
+      asp-append-version="true" />
+
+<div class="expenses-page">
+    <div class="expenses-page-header">
+        <div class="expenses-heading">
+            <h1 class="expenses-page-title">Delete Expense</h1>
+            <p class="expenses-page-subtitle">
+                Review the expense details before deleting this record.
+            </p>
+        </div>
+
+        <a asp-action="Index"
+           class="expenses-btn expenses-btn-secondary">
+            <i class="bi bi-arrow-left"></i>
+            Back to Expenses
+        </a>
+    </div>
+
+    <section class="expenses-card expense-delete-card">
+
+        <div class="expense-delete-warning">
+            <div class="expense-delete-warning-icon">
+                <i class="bi bi-exclamation-triangle"></i>
+            </div>
+            <div>
+                <h2>Are you sure?</h2>
+                <p>
+                    You are about to permanently delete this expense.
+                    This action cannot be undone.
+                </p>
+            </div>
+        </div>
+
+        <div class="expenses-card-header">
+            <div>
+                <h2 class="expenses-card-title">Expense Details</h2>
+                <p class="expenses-card-subtitle">
+                    Check that this is the correct expense.
+                </p>
+            </div>
+        </div>
+
+        <div class="expense-delete-details">
+
+            <div class="expense-delete-detail-row">
+                <span class="expense-delete-label">Description</span>
+                <span class="expense-delete-value">@Model.Description</span>
+            </div>
+
+            <div class="expense-delete-detail-row">
+                <span class="expense-delete-label">Amount</span>
+                <span class="expense-delete-value expense-delete-amount">
+                    ₹@Model.Amount.ToString("N2")
+                </span>
+            </div>
+
+            <div class="expense-delete-detail-row">
+                <span class="expense-delete-label">Category</span>
+                <span class="expense-delete-value">
+                    <span class="expense-category">@Model.Category</span>
+                </span>
+            </div>
+
+            <div class="expense-delete-detail-row">
+                <span class="expense-delete-label">Date</span>
+                <span class="expense-delete-value">
+                    @Model.Date.ToString("dd MMM yyyy")
+                </span>
+            </div>
+
+        </div>
+
+        <div class="expense-form-actions">
+            <form asp-action="Delete"
+                  asp-route-id="@Model.Id"
+                  method="post">
+                <button type="submit"
+                        class="expenses-btn expenses-btn-danger">
+                    <i class="bi bi-trash"></i>
+                    Confirm Delete
+                </button>
+            </form>
+
+            <a asp-action="Index"
+               class="expenses-btn expenses-btn-secondary">
+                Cancel
+            </a>
+        </div>
+
+    </section>
+</div>
