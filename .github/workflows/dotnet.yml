@@ -1,0 +1,40 @@
+﻿name: WalletWise CI
+
+on:
+  push:
+    branches:
+      - master
+
+  pull_request:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build and Test WalletWise
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Verify .NET SDK
+        shell: powershell
+        run: dotnet --info
+
+      - name: Restore dependencies
+        shell: powershell
+        run: dotnet restore
+
+      - name: Build solution
+        shell: powershell
+        run: dotnet build --configuration Release --no-restore
+
+      - name: Run tests
+        shell: powershell
+        run: dotnet test --configuration Release --no-build --verbosity normal
