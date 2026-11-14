@@ -1,8 +1,435 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "WalletWise | Personal Finance Management";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<link rel="stylesheet"
+      href="~/css/HomeIndex.css"
+      asp-append-version="true" />
+
+<div class="home-page">
+
+    <main>
+
+        <!-- Hero Section -->
+        <section class="home-hero" id="home">
+
+            <div class="home-hero-content">
+
+                <div class="home-eyebrow">
+                    <span class="home-eyebrow-dot"></span>
+                    SMARTER PERSONAL FINANCE
+                </div>
+
+                <h1 class="home-hero-title">
+                    Take control of your money.
+                    <span>Build better financial habits.</span>
+                </h1>
+
+                <p class="home-hero-description">
+                    Track your expenses, understand your spending patterns,
+                    and make more informed financial decisions with WalletWise.
+                </p>
+
+                <div class="home-hero-actions">
+                    <a href="#features"
+                       class="expenses-btn expenses-btn-primary home-primary-cta">
+                        Get started
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+
+                    <a href="#features" class="home-secondary-cta">
+                        Explore features
+                        <i class="bi bi-arrow-down"></i>
+                    </a>
+                </div>
+
+                <div class="home-hero-note">
+                    <i class="bi bi-shield-check"></i>
+                    A clearer picture of your everyday spending.
+                </div>
+
+            </div>
+
+            <!-- Minimal Product Preview -->
+            <div class="home-hero-visual">
+
+                <div class="home-preview-card">
+
+                    <div class="home-preview-header">
+                        <div>
+                            <span class="home-preview-label">WALLETWISE OVERVIEW</span>
+                            <h3>Your finances, organized.</h3>
+                        </div>
+
+                        <span class="home-preview-icon">
+                            <i class="bi bi-wallet2"></i>
+                        </span>
+                    </div>
+
+                    <div class="home-preview-divider"></div>
+
+                    <div class="home-preview-feature">
+                        <span class="home-preview-feature-icon">
+                            <i class="bi bi-receipt"></i>
+                        </span>
+                        <div>
+                            <h4>Track expenses</h4>
+                            <p>Keep your spending organized.</p>
+                        </div>
+                        <i class="bi bi-check-circle-fill home-preview-check"></i>
+                    </div>
+
+                    <div class="home-preview-feature">
+                        <span class="home-preview-feature-icon">
+                            <i class="bi bi-pie-chart"></i>
+                        </span>
+                        <div>
+                            <h4>Understand spending</h4>
+                            <p>Explore category-wise breakdowns.</p>
+                        </div>
+                        <i class="bi bi-check-circle-fill home-preview-check"></i>
+                    </div>
+
+                    <div class="home-preview-feature">
+                        <span class="home-preview-feature-icon">
+                            <i class="bi bi-stars"></i>
+                        </span>
+                        <div>
+                            <h4>Discover insights</h4>
+                            <p>Find practical ways to improve.</p>
+                        </div>
+                        <i class="bi bi-check-circle-fill home-preview-check"></i>
+                    </div>
+
+                    <div class="home-preview-footer">
+                        <i class="bi bi-lightbulb"></i>
+                        Small spending decisions can make a difference.
+                    </div>
+
+                </div>
+
+                <div class="home-visual-decoration home-decoration-one"></div>
+                <div class="home-visual-decoration home-decoration-two"></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Features Section -->
+        <section class="home-section" id="features">
+
+            <div class="home-section-heading">
+                <span class="home-section-eyebrow">WHAT YOU CAN DO</span>
+
+                <h2>
+                    Everything you need to understand
+                    <span>your money.</span>
+                </h2>
+
+                <p>
+                    Simple tools to help you stay organized, understand your
+                    expenses, and make smarter financial decisions.
+                </p>
+            </div>
+
+            <div class="home-feature-grid">
+
+                <article class="expenses-card home-feature-card">
+                    <div class="home-feature-icon">
+                        <i class="bi bi-receipt"></i>
+                    </div>
+
+                    <span class="home-feature-number">01</span>
+
+                    <h3>Expense Tracking</h3>
+
+                    <p>
+                        Record your daily expenses, organize transactions,
+                        and keep track of where your money goes.
+                    </p>
+
+                    <span class="home-feature-link">
+                        Stay organized
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </article>
+
+
+                <article class="expenses-card home-feature-card">
+                    <div class="home-feature-icon">
+                        <i class="bi bi-pie-chart"></i>
+                    </div>
+
+                    <span class="home-feature-number">02</span>
+
+                    <h3>Category Breakdown</h3>
+
+                    <p>
+                        Group expenses by category and identify which areas
+                        account for most of your spending.
+                    </p>
+
+                    <span class="home-feature-link">
+                        Understand spending
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </article>
+
+
+                <article class="expenses-card home-feature-card">
+                    <div class="home-feature-icon">
+                        <i class="bi bi-bar-chart-line"></i>
+                    </div>
+
+                    <span class="home-feature-number">03</span>
+
+                    <h3>Financial Reports</h3>
+
+                    <p>
+                        Visualize your expenses through charts and reports
+                        to get a clearer view of your financial habits.
+                    </p>
+
+                    <span class="home-feature-link">
+                        See the bigger picture
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </article>
+
+
+                <article class="expenses-card home-feature-card">
+                    <div class="home-feature-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+
+                    <span class="home-feature-number">04</span>
+
+                    <h3>AI Financial Insights</h3>
+
+                    <p>
+                        Get AI-powered observations and practical suggestions
+                        based on your spending patterns.
+                    </p>
+
+                    <span class="home-feature-link">
+                        Make informed decisions
+                        <i class="bi bi-arrow-right"></i>
+                    </span>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- How It Works -->
+        <section class="home-section home-how-section" id="how-it-works">
+
+            <div class="home-section-heading">
+                <span class="home-section-eyebrow">HOW IT WORKS</span>
+
+                <h2>
+                    Better financial habits,
+                    <span>one step at a time.</span>
+                </h2>
+
+                <p>
+                    Managing your expenses doesn't have to be complicated.
+                    Start with three simple steps.
+                </p>
+            </div>
+
+            <div class="home-steps-grid">
+
+                <article class="home-step">
+                    <div class="home-step-number">
+                        <i class="bi bi-plus-lg"></i>
+                    </div>
+
+                    <span>STEP 01</span>
+                    <h3>Record your expenses</h3>
+
+                    <p>
+                        Add your daily transactions with an amount,
+                        description, category, and date.
+                    </p>
+                </article>
+
+
+                <article class="home-step">
+                    <div class="home-step-number">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+
+                    <span>STEP 02</span>
+                    <h3>Analyze your spending</h3>
+
+                    <p>
+                        Explore charts and category breakdowns
+                        to understand your spending behavior.
+                    </p>
+                </article>
+
+
+                <article class="home-step">
+                    <div class="home-step-number">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+
+                    <span>STEP 03</span>
+                    <h3>Improve your habits</h3>
+
+                    <p>
+                        Use AI-generated observations and suggestions
+                        to make more thoughtful financial choices.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- AI Insights Highlight -->
+        <section class="home-ai-section" id="ai-insights">
+
+            <div class="home-ai-content">
+
+                <div class="home-ai-icon">
+                    <i class="bi bi-stars"></i>
+                </div>
+
+                <span class="home-section-eyebrow">A SMARTER WAY TO REFLECT</span>
+
+                <h2>
+                    Go beyond tracking.
+                    <span>Understand your spending.</span>
+                </h2>
+
+                <p>
+                    WalletWise AI Financial Insights helps turn your
+                    expense data into clear observations, positive
+                    financial habits, and practical improvement suggestions.
+                </p>
+
+                <div class="home-ai-points">
+                    <span>
+                        <i class="bi bi-check-circle"></i>
+                        Spending observations
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle"></i>
+                        Actionable suggestions
+                    </span>
+
+                    <span>
+                        <i class="bi bi-check-circle"></i>
+                        Positive habit recognition
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="home-ai-visual">
+                <div class="home-ai-insight-card">
+                    <div class="home-ai-card-heading">
+                        <span><i class="bi bi-stars"></i> AI INSIGHT PREVIEW</span>
+                        <span class="home-ai-status">Example</span>
+                    </div>
+
+                    <h3>Build awareness of your spending.</h3>
+
+                    <p>
+                        Reviewing your expenses regularly can help you
+                        identify patterns and find opportunities to save.
+                    </p>
+
+                    <div class="home-ai-card-tip">
+                        <i class="bi bi-lightbulb"></i>
+                        <span>
+                            Tip: Review your category-wise expenses
+                            at the end of each month.
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Final CTA -->
+        <section class="home-final-cta">
+
+            <span class="home-section-eyebrow">YOUR FINANCIAL JOURNEY STARTS HERE</span>
+
+            <h2>
+                Make every expense
+                <span>more meaningful.</span>
+            </h2>
+
+            <p>
+                Start understanding your spending and take a more
+                intentional approach to managing your money.
+            </p>
+
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a asp-controller="Expenses"
+                   asp-action="Index"
+                   class="expenses-btn expenses-btn-primary home-final-button">
+                    Go to Expenses
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            }
+            else
+            {
+                <a asp-controller="Account"
+                   asp-action="Login"
+                   asp-route-returnUrl="/Expenses/Index"
+                   class="expenses-btn expenses-btn-primary home-final-button"
+                   style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
+                    Get started with WalletWise
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            }
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="home-footer">
+
+        <div class="home-footer-inner">
+
+            <a href="#home" class="home-brand">
+                <span class="home-brand-icon">
+                    <i class="bi bi-wallet2"></i>
+                </span>
+                <span>WalletWise</span>
+            </a>
+
+            <p>
+                Understand your money. Make smarter decisions.
+            </p>
+
+            <div class="home-footer-links">
+                <a href="#home">Home</a>
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How it works</a>
+                <a href="#ai-insights">AI Insights</a>
+            </div>
+
+        </div>
+
+        <div class="home-footer-bottom">
+            <span>© @DateTime.Now.Year WalletWise. All rights reserved.</span>
+            <a href="#home">Back to top ↑</a>
+        </div>
+
+    </footer>
+
 </div>

@@ -18,7 +18,9 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-floating > .form-control-plaintext::placeholder, .form-floating > .form-control::placeholder {
@@ -28,4 +30,244 @@ body {
 
 .form-floating > .form-control-plaintext:focus::placeholder, .form-floating > .form-control:focus::placeholder {
   text-align: start;
+}
+
+
+/* =========================================
+   WalletWise - Shared Layout
+========================================= */
+
+:root {
+    --ww-primary: #263b63;
+    --ww-primary-dark: #1c2d4d;
+    --ww-text: #263247;
+    --ww-muted: #748096;
+    --ww-border: #e8ecf2;
+    --ww-background: #ffffff;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ww-text);
+    background: #f8f9fc;
+}
+
+/* =========================================
+   Navbar
+========================================= */
+
+.ww-header {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
+    background: var(--ww-background);
+    border-bottom: 1px solid var(--ww-border);
+}
+
+.ww-navbar {
+    min-height: 76px;
+    padding: 12px 0;
+    background: var(--ww-background);
+}
+
+.ww-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: var(--ww-primary);
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.7px;
+}
+
+    .ww-brand:hover {
+        color: var(--ww-primary-dark);
+    }
+
+.ww-brand-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    color: white;
+    background: var(--ww-primary);
+    font-size: 19px;
+}
+
+.ww-nav-links {
+    gap: 9px;
+}
+
+    .ww-nav-links .nav-link {
+        padding: 10px 13px !important;
+        color: #647087;
+        font-size: 14px;
+        font-weight: 600;
+        transition: color 0.2s ease;
+    }
+
+        .ww-nav-links .nav-link:hover,
+        .ww-nav-links .nav-link.active {
+            color: var(--ww-primary);
+        }
+
+.ww-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 22px;
+}
+
+.ww-login-btn {
+    padding: 10px 16px;
+    border: 1px solid var(--ww-border);
+    border-radius: 9px;
+    background: white;
+    color: var(--ww-primary);
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+    .ww-login-btn:hover {
+        background: #f4f6fa;
+        border-color: #cbd3e0;
+    }
+
+.ww-signup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    padding: 11px 17px;
+    border: 1px solid var(--ww-primary);
+    border-radius: 9px;
+    background: var(--ww-primary);
+    color: white;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+    .ww-signup-btn:hover {
+        background: var(--ww-primary-dark);
+        border-color: var(--ww-primary-dark);
+        color: white;
+    }
+
+.ww-navbar-toggler {
+    padding: 7px 10px;
+    border: 1px solid var(--ww-border);
+    border-radius: 9px;
+    color: var(--ww-primary);
+    font-size: 25px;
+    box-shadow: none !important;
+}
+
+    .ww-navbar-toggler:focus {
+        box-shadow: 0 0 0 3px rgba(38, 59, 99, 0.12) !important;
+    }
+
+/* =========================================
+   Main Content
+========================================= */
+
+.ww-home-main {
+    width: 100%;
+    padding: 0;
+}
+
+/* =========================================
+   Shared Footer
+========================================= */
+
+.ww-footer {
+    padding: 20px 0;
+    border-top: 1px solid var(--ww-border);
+    background: white;
+    color: var(--ww-muted);
+    font-size: 13px;
+}
+
+/* =========================================
+   Mobile and Tablet
+========================================= */
+
+@media (max-width: 991.98px) {
+
+    .ww-navbar {
+        min-height: 68px;
+    }
+
+        .ww-navbar .navbar-collapse {
+            padding: 15px 0 8px;
+        }
+
+    .ww-nav-links {
+        align-items: stretch !important;
+        gap: 3px;
+    }
+
+        .ww-nav-links .nav-link {
+            padding: 11px 8px !important;
+        }
+
+    .ww-nav-actions {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 9px;
+        margin: 12px 0 0;
+        padding-top: 14px;
+        border-top: 1px solid var(--ww-border);
+    }
+
+    .ww-login-btn,
+    .ww-signup-btn {
+        width: 100%;
+        min-height: 43px;
+    }
+}
+
+@media (max-width: 575.98px) {
+
+    .ww-navbar .container {
+        padding-right: 18px;
+        padding-left: 18px;
+    }
+
+    .ww-brand {
+        font-size: 20px;
+    }
+
+    .ww-brand-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 18px;
+    }
+}
+
+
+.ww-nav-actions a {
+    text-decoration: none;
+}
+
+.ww-user-name {
+    color: var(--ww-text);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ww-footer {
+    margin-top: auto;
 }

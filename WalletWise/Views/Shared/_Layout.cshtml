@@ -1,50 +1,173 @@
-﻿<!DOCTYPE html>
+﻿@{
+    var controller = ViewContext.RouteData.Values["controller"]?.ToString();
+    var action = ViewContext.RouteData.Values["action"]?.ToString();
+
+    var isHomePage = controller == "Home" && action == "Index";
+}
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>@ViewData["Title"] - WalletWise</title>
+
     <script type="importmap"></script>
+
+    <!-- Bootstrap -->
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- Application styles -->
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/WalletWise.styles.css" asp-append-version="true" />
 </head>
+
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">WalletWise</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+
+    <!-- Shared WalletWise Navbar -->
+    <header class="ww-header">
+        <nav class="navbar navbar-expand-lg ww-navbar">
+            <div class="container">
+
+                <!-- Brand -->
+                <a class="navbar-brand ww-brand"
+                   asp-controller="Home"
+                   asp-action="Index">
+
+                    <span class="ww-brand-icon">
+                        <i class="bi bi-wallet2"></i>
+                    </span>
+
+                    <span>WalletWise</span>
+                </a>
+
+                <!-- Mobile Toggle -->
+                <button class="navbar-toggler ww-navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#walletWiseNavigation"
+                        aria-controls="walletWiseNavigation"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+
+                    <i class="bi bi-list"></i>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+
+                <!-- Navigation -->
+                <div class="collapse navbar-collapse"
+                     id="walletWiseNavigation">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center ww-nav-links">
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link @(isHomePage ? "active" : "")"
+                               asp-controller="Home"
+                               asp-action="Index">
+                                Home
+                            </a>
                         </li>
+                        @if (User.Identity?.IsAuthenticated == true)
+                        {
+
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link"
+                               asp-controller="Expenses"
+                               asp-action="Index">
+                                Expenses
+                            </a>
                         </li>
+                        }
+                        <!-- Home page section links -->
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index"
+                               asp-fragment="features">
+                                Features
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Home"
+                               asp-action="Index"
+                               asp-fragment="ai-insights">
+                                AI Insights
+                            </a>
+                        </li>
+
                     </ul>
+
+                    <div class="ww-nav-actions">
+                        @if (User.Identity?.IsAuthenticated != true)
+                        {
+                            <a class="ww-login-btn"
+                               asp-controller="Account"
+                               asp-action="Login">
+                                Login
+                            </a>
+
+                            <a class="ww-signup-btn"
+                               asp-controller="Account"
+                               asp-action="Login"
+                               asp-route-screen_hint="signup">
+                                Sign up
+                                <i class="bi bi-arrow-right"></i>
+                            </a>
+                        }
+                        else
+                        {
+                            <span class="ww-user-name">
+                                Hello, @User.Identity.Name
+                            </span>
+
+                            <a class="ww-login-btn"
+                               asp-controller="Account"
+                               asp-action="Logout">
+                                Logout
+                            </a>
+                        }
+                    </div>
+
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2026 - WalletWise - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
+    <!-- Page Content -->
+    <main role="main"
+          class="@(isHomePage ? "ww-home-main" : "container pb-3")">
+
+        @RenderBody()
+
+    </main>
+
+    <!-- Shared footer: Home page already has its own footer -->
+    @if (!isHomePage)
+    {
+        <footer class="ww-footer">
+            <div class="container">
+                <span>© @DateTime.Now.Year WalletWise. All rights reserved.</span>
+            </div>
+        </footer>
+    }
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>

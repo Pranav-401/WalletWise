@@ -225,3 +225,90 @@
         font-size: 13px;
     }
 }
+
+/* AI Financial Insights */
+
+.ai-insights-section {
+    margin-top: 24px;
+}
+
+    .ai-insights-section .analysis-section-heading {
+        gap: 20px;
+    }
+
+.ai-insight-block {
+    padding: 8px 0;
+}
+
+.ai-insight-heading {
+    font-size: 17px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    color: var(--text-primary, #222);
+}
+
+    .ai-insight-heading i {
+        margin-right: 8px;
+    }
+
+.ai-insight-text {
+    line-height: 1.7;
+    margin-bottom: 0;
+    color: var(--text-secondary, #666);
+}
+
+.ai-insight-list {
+    padding-left: 22px;
+    margin-bottom: 0;
+}
+
+    .ai-insight-list li {
+        padding: 5px 0;
+        line-height: 1.6;
+        color: var(--text-secondary, #666);
+    }
+
+.ai-insight-improvement {
+    padding: 16px;
+    margin-bottom: 14px;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: 10px;
+}
+
+    .ai-insight-improvement h4 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .ai-insight-improvement ol {
+        padding-left: 22px;
+        margin-bottom: 0;
+    }
+
+    .ai-insight-improvement li {
+        padding: 4px 0;
+        line-height: 1.6;
+        color: var(--text-secondary, #666);
+    }
+
+#insightsLoading {
+    padding: 30px 0;
+}
+
+    #insightsLoading p {
+        margin-top: 12px;
+        color: var(--text-secondary, #666);
+    }
+
+@media (max-width: 768px) {
+    .ai-insights-section .analysis-section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    #generateInsightsBtn {
+        width: 100%;
+        justify-content: center;
+    }
+}

@@ -1,3 +1,4 @@
 <Solution>
+  <Project Path="WalletWise.Tests/WalletWise.Tests.csproj" Id="e951fcd3-2618-45ba-a806-31c478f0f64f" />
   <Project Path="WalletWise/WalletWise.csproj" />
 </Solution>

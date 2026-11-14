@@ -116,7 +116,107 @@
 
     </section>
 
+    <section class="expenses-card analysis-section-card ai-insights-section">
+
+        <!-- Section Header -->
+        <div class="analysis-section-heading">
+            <div>
+                <h2 class="expenses-card-title">
+                    <i class="bi bi-stars"></i>
+                    AI Financial Insights
+                </h2>
+
+                <p class="expenses-card-subtitle">
+                    Understand your spending habits and discover ways to improve your finances.
+                </p>
+            </div>
+
+            <button type="button"
+                    id="generateInsightsBtn"
+                    class="expenses-btn expenses-btn-primary">
+                <i class="bi bi-stars"></i>
+                Generate Insights
+            </button>
+        </div>
+
+        <div class="analysis-divider"></div>
+
+        <!-- Loading State -->
+        <div id="insightsLoading"
+             class="analysis-message"
+             style="display: none;">
+
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+
+            <p>Analyzing your spending patterns...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="insightsError"
+             class="analysis-message analysis-error"
+             style="display: none;">
+
+            <i class="bi bi-exclamation-circle"></i>
+            <span id="insightsErrorText"></span>
+        </div>
+
+        <!-- AI Results -->
+        <div id="insightsContent" style="display: none;">
+
+            <!-- Summary -->
+            <div class="ai-insight-block">
+                <h3 class="ai-insight-heading">
+                    <i class="bi bi-clipboard-data"></i>
+                    Financial Summary
+                </h3>
+
+                <p id="insightsSummary" class="ai-insight-text"></p>
+            </div>
+
+            <div class="analysis-divider"></div>
+
+            <!-- Observations -->
+            <div class="ai-insight-block">
+                <h3 class="ai-insight-heading">
+                    <i class="bi bi-search"></i>
+                    Spending Observations
+                </h3>
+
+                <ul id="insightsObservations" class="ai-insight-list"></ul>
+            </div>
+
+            <div class="analysis-divider"></div>
+
+            <!-- Improvements -->
+            <div class="ai-insight-block">
+                <h3 class="ai-insight-heading">
+                    <i class="bi bi-lightbulb"></i>
+                    Improvement Suggestions
+                </h3>
+
+                <div id="insightsImprovements"></div>
+            </div>
+
+            <div class="analysis-divider"></div>
+
+            <!-- Positive Habits -->
+            <div class="ai-insight-block">
+                <h3 class="ai-insight-heading">
+                    <i class="bi bi-check-circle"></i>
+                    Positive Financial Habits
+                </h3>
+
+                <ul id="insightsPositiveHabits" class="ai-insight-list"></ul>
+            </div>
+
+        </div>
+
+    </section>
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="~/js/analysis.js" asp-append-version="true"></script>
+<script src="~/js/insight.js" asp-append-version="true"></script>

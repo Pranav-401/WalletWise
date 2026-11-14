@@ -35,9 +35,10 @@
         </div>
 
         <div class="expense-form-content">
+           
             <form asp-action="Create" method="post">
 
-                <div asp-validation-summary="ModelOnly"
+                <div asp-validation-summary="All"
                      class="text-danger expense-validation-summary">
                 </div>
 
@@ -49,8 +50,7 @@
                            class="form-control expense-form-input"
                            placeholder="e.g. Grocery shopping" />
                     <span asp-validation-for="Description"
-                          class="text-danger expense-validation-message">
-                    </span>
+                          class="text-danger expense-validation-message"></span>
                 </div>
 
                 <div class="expense-form-group">
@@ -64,8 +64,7 @@
                            min="0.1"
                            placeholder="e.g. 500.00" />
                     <span asp-validation-for="Amount"
-                          class="text-danger expense-validation-message">
-                    </span>
+                          class="text-danger expense-validation-message"></span>
                 </div>
 
                 <div class="expense-form-group">
@@ -76,13 +75,23 @@
                            class="form-control expense-form-input"
                            placeholder="e.g. Food, Transport, Shopping" />
                     <span asp-validation-for="Category"
-                          class="text-danger expense-validation-message">
-                    </span>
+                          class="text-danger expense-validation-message"></span>
+                </div>
+
+                <div class="expense-form-group">
+                    <label asp-for="Date" class="expense-form-label">
+                        Expense Date
+                    </label>
+                    <input asp-for="Date"
+                           type="date"
+                           class="form-control expense-form-input"
+                           value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+                    <span asp-validation-for="Date"
+                          class="text-danger expense-validation-message"></span>
                 </div>
 
                 <div class="expense-form-actions">
-                    <button type="submit"
-                            class="expenses-btn expenses-btn-primary">
+                    <button type="submit" class="expenses-btn expenses-btn-primary">
                         <i class="bi bi-check-lg"></i>
                         Save Expense
                     </button>
@@ -94,6 +103,7 @@
                 </div>
 
             </form>
+
         </div>
     </section>
 </div>
